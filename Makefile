@@ -1,6 +1,7 @@
 # Macros para compilacao
 CC = gcc
 CFLAGS = -Wextra
+CFLAGS1 = -std=c99
 DIR = src
 FILENAME = $(DIR)/main.c
 TARGET = ./main
@@ -24,10 +25,10 @@ EXTENSIONS = *.c *.h *.in *.out *.sh
 all:$(TARGET)
 
 $(TARGET):$(OBJS)
-	$(CC) -o$(TARGET) $(OBJS) $(CFLAGS)
+	$(CC) -o$(TARGET) $(OBJS) $(CFLAGS) $(CFLAGS1)
 
 $(OBJS):$(SRCS)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(CFLAGS1) -c $< -o $@
 
 
 test:all
